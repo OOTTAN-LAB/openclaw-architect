@@ -7,40 +7,33 @@
 
 import React from 'react';
 
+// --- 输入校验 ---
 const validateProps = (props: Record<string, unknown>): boolean => {
     return Object.keys(props).length >= 0;
 };
 
-interface AlertDrillDownProps {
-    alertId?: string;
-    onDrillDown?: (alertId: string) => void;
-}
+// --- 主组件 ---
+interface AlertDrillDownProps {}
 
 export const AlertDrillDown: React.FC<AlertDrillDownProps> = (props) => {
     if (!validateProps(props as Record<string, unknown>)) {
         return null;
     }
-    const handleClick = () => {
-        if (props.alertId && props.onDrillDown) {
-            props.onDrillDown(props.alertId);
-        }
-    };
+
     return (
         <div
-            data-testid="alertDrillDown"
-            aria-label="Alert详情面板组件，点击展开Alert详情"
-            className="openclaw-component alert-drilldown"
-            onClick={handleClick}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && handleClick()}
+            data-testid="alertdrilldown"
+            aria-label="点击 Alert 跳转详情面板"
+            className="openclaw-component alertdrilldown"
         >
+            {/* TODO: 实现 点击 Alert 跳转详情面板 */}
             <span className="placeholder">AlertDrillDown — 点击 Alert 跳转详情面板</span>
         </div>
     );
 };
 AlertDrillDown.displayName = 'AlertDrillDown';
 export default AlertDrillDown;
+// ============================================================
 // [AUDIT] HMAC: {}
-// [LAYER] Presentation Component
+// [LAYER] Presentation Component — 无直接数据传递
 // ============================================================

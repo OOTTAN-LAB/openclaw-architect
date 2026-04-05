@@ -7,24 +7,33 @@
 
 import React from 'react';
 
+// --- 输入校验 ---
 const validateProps = (props: Record<string, unknown>): boolean => {
     return Object.keys(props).length >= 0;
 };
 
+// --- 主组件 ---
 interface SeverityGradientProps {}
 
 export const SeverityGradient: React.FC<SeverityGradientProps> = (props) => {
     if (!validateProps(props as Record<string, unknown>)) {
         return null;
     }
+
     return (
-        <div data-testid="severityGradient" aria-label="严重程度渐层组件" className="openclaw-component severity-gradient">
-            <span className="placeholder">SeverityGradient — Severity 颜色渐层</span>
+        <div
+            data-testid="severitygradient"
+            aria-label="Severity 颜色渐层组件"
+            className="openclaw-component severitygradient"
+        >
+            {/* TODO: 实现 Severity 颜色渐层组件 */}
+            <span className="placeholder">SeverityGradient — Severity 颜色渐层组件</span>
         </div>
     );
 };
 SeverityGradient.displayName = 'SeverityGradient';
 export default SeverityGradient;
+// ============================================================
 // [AUDIT] HMAC: {}
-// [LAYER] Presentation Component
+// [LAYER] Presentation Component — 无直接数据传递
 // ============================================================
